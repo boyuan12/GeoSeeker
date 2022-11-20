@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 import requests
 import json
@@ -9,15 +10,15 @@ elk_grove = requests.get("https://storage.googleapis.com/geoseekeraddress/us_ca_
 elk_grove = elk_grove.text
 elk_grove = elk_grove.split("\n")
 
-nyc = requests.get("https://storage.googleapis.com/geoseekeraddress/us_ny_city_of_new_york-addresses-city.geojson")
-nyc = nyc.text
-nyc = nyc.split("\n")
+# nyc = requests.get("https://storage.googleapis.com/geoseekeraddress/us_ny_city_of_new_york-addresses-city.geojson")
+# nyc = nyc.text
+# nyc = nyc.split("\n")
 
-utah = requests.get("https://storage.googleapis.com/geoseekeraddress/statewide-addresses-state.geojson")
-utah = utah.text
-utah = utah.split("\n")
+# utah = requests.get("https://storage.googleapis.com/geoseekeraddress/statewide-addresses-state.geojson")
+# utah = utah.text
+# utah = utah.split("\n")
 
-total_address = elk_grove + nyc + utah
+total_address = elk_grove # + nyc + utah
 
 @app.route('/')
 def index():
